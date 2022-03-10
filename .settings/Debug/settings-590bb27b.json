@@ -19,5 +19,7 @@
   "UiPath.OCR.Activities.UiPathScreenOCR.Endpoint": "https://ocr.uipath.com/",
   "UiPath.OCR.Activities.UiPathScreenOCR.ApiKey": "",
   "UiPath.OCR.Activities.UiPathDocumentOCR.Endpoint": "https://du.uipath.com/ocr",
-  "UiPath.OCR.Activities.UiPathDocumentOCR.ApiKey": ""
+  "UiPath.OCR.Activities.UiPathDocumentOCR.ApiKey": "",
+  "UiPath.UiAutomation.Activities.CjkOCR.ApiKey": "",
+  "UiPath.UiAutomation.Activities.CjkOCR.Endpoint": ""
 }

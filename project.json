@@ -3,10 +3,10 @@
   "description": "Für alle Einträge in einer CSV-Liste von LinkedIn-Profil-URLs wird versucht, sich mit dieser Person automatisch zu vernetzen.",
   "main": "Main.xaml",
   "dependencies": {
-    "UiPath.Excel.Activities": "[2.10.2-preview]",
-    "UiPath.Mail.Activities": "[1.10.2-preview]",
-    "UiPath.System.Activities": "[21.2.1-preview]",
-    "UiPath.UIAutomation.Activities": "[21.2.0-preview]"
+    "UiPath.Excel.Activities": "[2.12.0-preview]",
+    "UiPath.Mail.Activities": "[1.14.0-preview]",
+    "UiPath.System.Activities": "[22.2.0-preview]",
+    "UiPath.UIAutomation.Activities": "[22.2.0-preview]"
   },
   "webServices": [],
   "entitiesStores": [],
@@ -15,7 +15,9 @@
   "projectVersion": "1.0.0",
   "runtimeOptions": {
     "autoDispose": false,
+    "netFrameworkLazyLoading": false,
     "isPausable": true,
+    "isAttended": false,
     "requiresUserInteraction": true,
     "supportsPersistence": false,
     "excludedLoggedData": [
@@ -24,7 +26,8 @@
     ],
     "executionType": "Workflow",
     "readyForPiP": false,
-    "startsInPiP": false
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": false
   },
   "designOptions": {
     "projectProfile": "Developement",
@@ -50,5 +53,6 @@
   ],
   "isTemplate": false,
   "templateProjectData": {},
-  "publishData": {}
+  "publishData": {},
+  "targetFramework": "Legacy"
 }

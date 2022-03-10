@@ -23,5 +23,9 @@
   "UiPath.UiAutomation.Activities.Generic.AlterIfDisabled": "False",
   "UiPath.UiAutomation.Activities.Browser.UserDataFolderMode": "Automatic",
   "UiPath.UiAutomation.Activities.Browser.UserDataFolderPath": "",
-  "UiPath.UiAutomation.Activities.ElementExists.TimeoutMS": "30000"
+  "UiPath.UiAutomation.Activities.ElementExists.TimeoutMS": "30000",
+  "UiPath.UiAutomation.Activities.Generic.CaptureScreenshots": "True",
+  "UiPath.UiAutomation.Activities.Generic.ShowClosestMatchesInSearchError": "True",
+  "UiPath.UiAutomation.Activities.Browser.RuntimeBrowser": "None",
+  "UiPath.UiAutomation.Activities.RobotLogging.LogTargetInfo": "False"
 }

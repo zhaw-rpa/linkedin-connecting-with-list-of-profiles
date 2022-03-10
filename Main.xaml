@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1065,1021" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1248,1148" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="44">
       <x:String>System.Activities</x:String>
@@ -57,35 +57,40 @@
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Auto Connect In LinkedIn" sap:VirtualizedContainerService.HintSize="602,856" sap2010:WorkflowViewState.IdRef="Sequence_3">
+  <Sequence sap2010:Annotation.AnnotationText="VORBEREITUNGSARBEITEN:&#xD;&#xA;1. In Excel filtern nach allen Einträgen mit einer LinkedIn URL&#xD;&#xA;2. Die gesamte Spalte mit den URLs (ohne die Header-Zeile) auswählen und in ein leeres Notepad einfügen =&gt; Pro Zeile ist eine URL&#xD;&#xA;3. Diese Datei speichern als csv-Datei&#xD;&#xA;4. Hier beim Bot bei der ersten Aktivität &quot;Read CSV&quot; den Pfad zu dieser Datei angeben&#xD;&#xA;5. MS Edge-Browser starten und bei LinkedIn anmelden, dann aber auf eine andere Seite navigieren (z.B. www.google.ch)&#xD;&#xA;6. Bot starten aus Studio heraus mit Run und Maus/Tastatur nicht mehr benutzen&#xD;&#xA;7. Im Output-Dialog prüfen, ob alles reibungslos gelaufen ist." DisplayName="Auto Connect In LinkedIn" sap:VirtualizedContainerService.HintSize="602,1083" sap2010:WorkflowViewState.IdRef="Sequence_3">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtApplications" />
+      <Variable x:TypeArguments="ui:Browser" Name="browser" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[dtApplications]" Delimitator="Semicolon" DisplayName="Read CSV" FilePath="C:\Users\scep\ZHAW\BSc BSS Organisation - General\2021FS\Leistungsnachweise\KK_Bewertung\02_Bewerbungen_LinkedInQuelle.csv" sap:VirtualizedContainerService.HintSize="560,152" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1">
+    <ui:ReadCsvFile sap2010:Annotation.AnnotationText="ANZUPASSEN: Hier den Ort der CSV-Datei angeben" DataTable="[dtApplications]" Delimitator="Semicolon" DisplayName="Read CSV" FilePath="C:\Users\scep\Desktop\linkedinurls.csv" sap:VirtualizedContainerService.HintSize="560,183" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" IncludeColumnNames="False">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ReadCsvFile>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtApplications]" DisplayName="For Each Application" sap:VirtualizedContainerService.HintSize="560,572" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtApplications]" DisplayName="For Each Application" sap:VirtualizedContainerService.HintSize="560,606" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="rowApplication" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do For Each Application" sap:VirtualizedContainerService.HintSize="526,452" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do For Each Application" sap:VirtualizedContainerService.HintSize="526,491" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="strLinkedInUrl" />
-              <Variable x:TypeArguments="ui:Browser" Name="uiBrowser" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -97,15 +102,19 @@
                 <OutArgument x:TypeArguments="x:String">[strLinkedInUrl]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[rowApplication("LinkedIn URL").ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String">[rowApplication(0).ToString]</InArgument>
               </Assign.Value>
             </Assign>
-            <If Condition="[strLinkedInUrl.Contains(&quot;linkedin.com&quot;)]" DisplayName="If it is a linkedin url" sap:VirtualizedContainerService.HintSize="484,260" sap2010:WorkflowViewState.IdRef="If_3">
+            <If Condition="[strLinkedInUrl.Contains(&quot;linkedin.com&quot;)]" DisplayName="If it is a linkedin url" sap:VirtualizedContainerService.HintSize="484,299" sap2010:WorkflowViewState.IdRef="If_3">
               <If.Then>
-                <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ConnectToLinkedInProfile workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ConnectToLinkedInProfile.xaml">
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ConnectToLinkedInProfile workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ConnectToLinkedInProfile.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="x:String" x:Key="strLinkedInUrl">[strLinkedInUrl]</InArgument>
-                    <OutArgument x:TypeArguments="ui:Browser" x:Key="uiBrowser">[uiBrowser]</OutArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="strLinkedInUrl">
+                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strLinkedInUrl" />
+                    </InArgument>
+                    <OutArgument x:TypeArguments="ui:Browser" x:Key="uiBrowser">
+                      <mva:VisualBasicReference x:TypeArguments="ui:Browser" ExpressionText="browser" />
+                    </OutArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
               </If.Then>
