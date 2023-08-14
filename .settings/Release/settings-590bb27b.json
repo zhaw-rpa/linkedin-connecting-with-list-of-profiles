@@ -21,5 +21,8 @@
   "UiPath.OCR.Activities.UiPathDocumentOCR.Endpoint": "https://du.uipath.com/ocr",
   "UiPath.OCR.Activities.UiPathDocumentOCR.ApiKey": "",
   "UiPath.UiAutomation.Activities.CjkOCR.ApiKey": "",
-  "UiPath.UiAutomation.Activities.CjkOCR.Endpoint": ""
+  "UiPath.UiAutomation.Activities.CjkOCR.Endpoint": "",
+  "UiPath.UiAutomation.Activities.GoogleCloudOCR.Region": "Global",
+  "UiPath.OCR.Activities.CjkOCR.Endpoint": "",
+  "UiPath.OCR.Activities.CjkOCR.ApiKey": ""
 }
